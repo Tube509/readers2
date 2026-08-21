@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>등대독서회 | (주)제주비 사내 독서동호회</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Pretendard & Noto Serif KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cozy: {
+                            bg: '#FAF8F5',
+                            card: '#FFFFFF',
+                            text: '#2D3748',
+                            muted: '#718096',
+                            sand: '#F3EFEA',
+                            primary: '#0284C7', /* Ocean Lighthouse Sky */
+                            primaryHover: '#0369A1',
+                            warmGlow: '#F59E0B', /* Warm light */
+                            sage: '#059669',
+                            border: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        serif: ['Noto Serif KR', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF8F5;
+            color: #2D3748;
+            font-family: 'Pretendard', sans-serif;
+        }
+        .serif-heading {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .warm-glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-100 selection:text-sky-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 warm-glass border-b border-cozy-sand/80 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-amber-400 p-0.5 shadow-sm group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center text-lg">
+                        🏮
+                    </div>
+                </div>
+                <div>
+                    <span class="font-bold text-lg text-slate-800 tracking-tight block leading-none">등대독서회</span>
+                    <span class="text-[11px] text-cozy-muted font-medium tracking-wide">(주)제주비 사내 동호회</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-cozy-primary transition">동호회 소개</a>
+                <a href="#schedule" class="hover:text-cozy-primary transition">운영 & 일정</a>
+                <a href="#books" class="hover:text-cozy-primary transition">함께 읽는 책</a>
+                <a href="#ai-lounge" class="text-sky-600 font-semibold hover:text-cozy-primaryHover transition flex items-center gap-1">
+                    <span>✨ AI 등대 라운지</span>
+                </a>
+                <a href="#faq" class="hover:text-cozy-primary transition">자주 묻는 질문</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="flex items-center gap-3">
+                <button onclick="openApplyModal()" class="bg-cozy-primary hover:bg-cozy-primaryHover text-white text-sm font-medium px-5 py-2.5 rounded-xl transition shadow-sm hover:shadow-md active:scale-95 flex items-center gap-1.5">
+                    <span>가입 신청하기</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 px-4 sm:px-6 overflow-hidden">
+            <!-- Subtle background ambient light -->
+            <div class="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-sky-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200/60 text-amber-800 text-xs font-semibold mb-6 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    <span>매주 금요일 11:00 ~ 13:00 정기 모임</span>
+                </div>
+
+                <!-- Main Slogan -->
+                <h1 class="serif-heading text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-tight leading-tight sm:leading-snug mb-6">
+                    생각의 항해를 밝히는<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-sky-600 to-amber-600">등대독서회</span>에 초대합니다
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+                    바쁜 일상 속, 책 한 권을 매개로 더 넓은 시야를 발견하고<br class="hidden sm:inline">
+                    (주)제주비 동료들과 따뜻한 담소를 나누는 시간.<br>
+                    금요일 점심, 우리의 지적 성장이 시작됩니다.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="openApplyModal()" class="w-full sm:w-auto bg-cozy-primary hover:bg-cozy-primaryHover text-white font-medium px-8 py-3.5 rounded-2xl shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+                        <span>지금 동호회 가입하기</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </button>
+                    <a href="#about" class="w-full sm:w-auto bg-white hover:bg-cozy-sand/50 text-slate-700 border border-slate-200/80 font-medium px-8 py-3.5 rounded-2xl transition text-center shadow-sm">
+                        동호회 둘러보기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Highlights Grid -->
+        <section class="py-12 px-4 sm:px-6 max-w-6xl mx-auto -mt-6">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200/70 custom-shadow hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl mb-5 font-bold">
+                        👥
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-sky-600 block mb-1">Target</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">참가 대상</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <strong>(주)제주비 임직원 누구나</strong><br>
+                        직급, 연차, 부서에 구애받지 않고 책과 대화를 좋아하는 분이라면 언제든 환영합니다.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-amber-200/70 custom-shadow hover:-translate-y-1 transition duration-300 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-20 h-20 bg-amber-100/50 rounded-full blur-xl"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-5 font-bold">
+                        ⏰
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600 block mb-1">Time</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">정기 모임 시간</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <strong>매주 금요일 11:00 ~ 13:00</strong><br>
+                        주말을 앞둔 금요일 오전-점심 시간을 활용해 효율적이고 부담 없이 운영됩니다.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-emerald-200/70 custom-shadow hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-5 font-bold">
+                        🥗
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 block mb-1">Benefits</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">점심 & 다과 지원</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        사내 라운지 및 회의실 이용과 함께 <strong>모임 시 맛있는 점심 식사 및 커피·다과</strong>가 전액 지원됩니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 bg-stone-100/60 border-y border-stone-200/60">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="serif-heading text-2xl sm:text-4xl font-bold text-slate-900 mb-4">
+                        등대독서회가 지향하는 가치
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        혼자 읽으면 스쳐 지나가는 생각들이 동료들과의 대화를 통해 깊은 인사이트와 유대감으로 완성됩니다.
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/60">
+                        <div class="text-sky-600 font-bold text-lg mb-2 flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-sky-100 text-sky-700 text-xs flex items-center justify-center">01</span>
+                            자율적인 도서 선정
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            특정 분야에 치우치지 않고, 멤버들의 추천을 통해 인문, 경제, 소설, 자기계발 등 다양한 장르를 골고루 다룹니다.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/60">
+                        <div class="text-amber-600 font-bold text-lg mb-2 flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-amber-100 text-amber-700 text-xs flex items-center justify-center">02</span>
+                            수평적 소통 문화
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            직급과 역할을 내려놓고, 책이라는 동일한 주제 아래 서로의 관점을 존중하며 편안하게 이야기를 나눕니다.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/60 sm:col-span-2 lg:col-span-1">
+                        <div class="text-emerald-600 font-bold text-lg mb-2 flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 text-xs flex items-center justify-center">03</span>
+                            일상의 재충전
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            지친 한 주의 끝자락인 금요일 점심시간, 정성스러운 식사와 지적 대화로 주말을 앞두고 에너지를 채웁니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner Quote -->
+                <div class="mt-12 bg-gradient-to-r from-sky-900 to-slate-800 text-white rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden shadow-lg">
+                    <div class="absolute -right-10 -bottom-10 text-8xl opacity-10 font-serif">“</div>
+                    <p class="serif-heading text-lg sm:text-xl font-medium mb-3 text-sky-100">
+                        "혼자 읽으면 멀리 가기 힘들지만, 함께 읽으면 더 깊고 넓게 갈 수 있습니다."
+                    </p>
+                    <span class="text-xs text-sky-300 font-light tracking-widest uppercase block">- (주)제주비 등대독서회 멘토진 -</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weekly Schedule Section -->
+        <section id="schedule" class="py-16 sm:py-24 px-4 sm:px-6 max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-cozy-primary uppercase block mb-2">Weekly Rhythm</span>
+                <h2 class="serif-heading text-2xl sm:text-4xl font-bold text-slate-900 mb-4">
+                    금요일 2시간의 항해 코스
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    업무에 차질 없이 알차게 구성된 120분간의 정기 모임 타임라인입니다.
+                </p>
+            </div>
+
+            <div class="relative border-l-2 border-sky-200 ml-4 sm:ml-32 space-y-12">
+                <!-- Timeline item 1 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-sky-500 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        1
+                    </div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right font-bold text-sky-700 text-sm mb-1 sm:mb-0">
+                        11:00 ~ 11:10
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm">
+                        <h4 class="font-bold text-slate-900 text-base mb-1">체크인 & 아이스브레이킹</h4>
+                        <p class="text-slate-600 text-sm">
+                            한 주간의 안부를 묻고, 오늘 나눌 도서의 주제와 핵심 키워드를 가볍게 환기합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline item 2 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-sky-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        2
+                    </div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right font-bold text-sky-700 text-sm mb-1 sm:mb-0">
+                        11:10 ~ 12:00
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm">
+                        <h4 class="font-bold text-slate-900 text-base mb-1">인사이트 발제 및 주제 토론</h4>
+                        <p class="text-slate-600 text-sm">
+                            인상 깊었던 구절을 공유하고, 자유로운 질문 카드에 따라 서로의 경험과 시각을 나눕니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline item 3 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        3
+                    </div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right font-bold text-amber-700 text-sm mb-1 sm:mb-0">
+                        12:00 ~ 13:00
+                    </div>
+                    <div class="bg-amber-50/50 p-6 rounded-2xl border border-amber-200/80 shadow-sm">
+                        <h4 class="font-bold text-slate-900 text-base mb-1">점심 식사 & 소통 (Lunch & Chat)</h4>
+                        <p class="text-slate-600 text-sm">
+                            준비된 점심 식사와 음료를 즐기며 업무 및 일상의 다채로운 이야기를 이어갑니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Showcase Section -->
+        <section id="books" class="py-16 sm:py-24 px-4 sm:px-6 bg-stone-100/60 border-t border-stone-200/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-cozy-primary uppercase block mb-2">Book Shelf</span>
+                        <h2 class="serif-heading text-2xl sm:text-4xl font-bold text-slate-900">
+                            함께 읽는 책들
+                        </h2>
+                    </div>
+                    
+                    <!-- Filter Tabs -->
+                    <div class="flex gap-2 p-1 bg-white rounded-xl border border-stone-200 text-xs font-medium">
+                        <button onclick="filterBooks('all')" id="btn-all" class="px-3 py-1.5 rounded-lg bg-cozy-primary text-white transition">전체</button>
+                        <button onclick="filterBooks('current')" id="btn-current" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-stone-100 transition">이달의 책</button>
+                        <button onclick="filterBooks('essay')" id="btn-essay" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-stone-100 transition">인문/에세이</button>
+                        <button onclick="filterBooks('biz')" id="btn-biz" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-stone-100 transition">트렌드/경영</button>
+                    </div>
+                </div>
+
+                <!-- Books Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="book-grid">
+                    <!-- Book Item 1 -->
+                    <div class="book-card current biz bg-white rounded-3xl p-6 border border-stone-200/70 shadow-sm hover:shadow-md transition">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-20 h-28 bg-sky-100 rounded-xl flex-shrink-0 flex items-center justify-center text-3xl shadow-inner">
+                                📘
+                            </div>
+                            <div>
+                                <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full inline-block mb-2">이달의 선정 도서</span>
+                                <h3 class="font-bold text-slate-900 text-base mb-1">도파민 네이션</h3>
+                                <p class="text-xs text-cozy-muted mb-3">애나 렘키 저 | 흐름출판</p>
+                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                                    쾌락과 통증의 균형을 유지하며 쾌적한 분별력을 유지하는 삶의 방식에 관한 탐구.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Item 2 -->
+                    <div class="book-card essay bg-white rounded-3xl p-6 border border-stone-200/70 shadow-sm hover:shadow-md transition">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-20 h-28 bg-emerald-100 rounded-xl flex-shrink-0 flex items-center justify-center text-3xl shadow-inner">
+                                📗
+                            </div>
+                            <div>
+                                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full inline-block mb-2">인문/에세이</span>
+                                <h3 class="font-bold text-slate-900 text-base mb-1">물고기는 존재하지 않는다</h3>
+                                <p class="text-xs text-cozy-muted mb-3">룰루 밀러 저 | 곰출판</p>
+                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                                    혼돈의 세계에서 자신만의 질서를 찾아가는 감동적인 지적 여정.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Item 3 -->
+                    <div class="book-card biz bg-white rounded-3xl p-6 border border-stone-200/70 shadow-sm hover:shadow-md transition">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-20 h-28 bg-amber-100 rounded-xl flex-shrink-0 flex items-center justify-center text-3xl shadow-inner">
+                                📙
+                            </div>
+                            <div>
+                                <span class="bg-sky-100 text-sky-800 text-[10px] font-bold px-2 py-0.5 rounded-full inline-block mb-2">트렌드/경영</span>
+                                <h3 class="font-bold text-slate-900 text-base mb-1">트렌드 코리아 2026</h3>
+                                <p class="text-xs text-cozy-muted mb-3">김난도 외 저 | 미래의창</p>
+                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                                    변화하는 소비자 심리와 시장 지형을 파악하고 비즈니스 통찰을 얻는 모임.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Lounge Section (Gemini API Integration) -->
+        <section id="ai-lounge" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-sky-900/5 via-amber-500/5 to-transparent border-t border-sky-100">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold mb-3">
+                        <span>✨ Powered by Gemini AI</span>
+                    </div>
+                    <h2 class="serif-heading text-2xl sm:text-4xl font-bold text-slate-900 mb-3">
+                        AI 등대 라운지
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base">
+                        Google Gemini AI 기술을 활용해 맞춤 도서 추천, 토론 발제문 생성, 오디오 낭독 및 독서 아트워크 생성을 체험해보세요.
+                    </p>
+                </div>
+
+                <!-- AI Feature Navigation Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mb-8" id="ai-tabs">
+                    <button onclick="switchAiTab('recommend')" id="tab-recommend" class="px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-cozy-primary text-white shadow-sm transition flex items-center gap-1.5">
+                        <span>🤖</span> 맞춤 도서 추천
+                    </button>
+                    <button onclick="switchAiTab('discussion')" id="tab-discussion" class="px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-stone-100 transition border border-stone-200 flex items-center gap-1.5">
+                        <span>💡</span> 토론 질문 생성기
+                    </button>
+                    <button onclick="switchAiTab('tts')" id="tab-tts" class="px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-stone-100 transition border border-stone-200 flex items-center gap-1.5">
+                        <span>🔊</span> AI 오디오 낭독 (TTS)
+                    </button>
+                    <button onclick="switchAiTab('image')" id="tab-image" class="px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-stone-100 transition border border-stone-200 flex items-center gap-1.5">
+                        <span>🎨</span> AI 독서 북마크 생성
+                    </button>
+                </div>
+
+                <!-- Tab 1: AI Book Recommender -->
+                <div id="ai-panel-recommend" class="ai-panel bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm">
+                    <h3 class="serif-heading text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <span>🤖</span> 나에게 딱 맞는 AI 도서 소믈리에
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        현재 고민, 관심사, 직무, 또는 읽고 싶은 분위기를 적어주시면 Gemini AI가 등대독서회 맞춤 추천 도서를 찾아드립니다.
+                    </p>
+
+                    <div class="space-y-4 max-w-3xl">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">나의 상황 또는 관심 주제</label>
+                            <input type="text" id="recommend-input" placeholder="예: 개발 3년차, 번아웃 완화와 일의 의미를 다룬 따뜻한 책 추천해줘" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        </div>
+
+                        <!-- Preset Quick Chips -->
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="text-slate-400 py-1">예시 클릭:</span>
+                            <button onclick="setRecommendPrompt('리더십과 소통 능력을 키우고 싶어요')" class="px-3 py-1 bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg transition">#리더십 & 소통</button>
+                            <button onclick="setRecommendPrompt('주말에 부담없이 읽기 좋은 감성 에세이')" class="px-3 py-1 bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg transition">#감성 에세이</button>
+                            <button onclick="setRecommendPrompt('트렌드 변화와 AI 미래 전망')" class="px-3 py-1 bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg transition">#AI & 트렌드</button>
+                        </div>
+
+                        <button onclick="generateBookRecommendations()" id="btn-gen-rec" class="bg-cozy-primary hover:bg-cozy-primaryHover text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                            <span>✨ 추천 도서 검색하기</span>
+                        </button>
+
+                        <!-- Loading State -->
+                        <div id="rec-loading" class="hidden py-8 text-center text-sky-600">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-sky-500 border-t-transparent mb-2"></div>
+                            <p class="text-xs font-medium">Gemini AI가 어울리는 책을 정성껏 찾고 있습니다...</p>
+                        </div>
+
+                        <!-- Result Area -->
+                        <div id="rec-result" class="hidden mt-6 p-6 bg-stone-50 rounded-2xl border border-stone-200 text-slate-800 text-sm leading-relaxed whitespace-pre-wrap"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: AI Discussion Generator -->
+                <div id="ai-panel-discussion" class="ai-panel hidden bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm">
+                    <h3 class="serif-heading text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <span>💡</span> AI 독서 토론 질문(발제문) 생성기
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        독서모임에서 깊은 대화를 이끌어낼 수 있는 생생한 토론 질문 카드 3가지를 생성합니다.
+                    </p>
+
+                    <div class="space-y-4 max-w-3xl">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">도서 제목 및 저자</label>
+                            <input type="text" id="discussion-book-input" placeholder="예: 도파민 네이션 - 애나 렘키" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        </div>
+
+                        <!-- Current Books Quick Buttons -->
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="text-slate-400 py-1">이달의 책 선택:</span>
+                            <button onclick="setDiscussionBook('도파민 네이션 - 애나 렘키')" class="px-3 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 rounded-lg transition">📘 도파민 네이션</button>
+                            <button onclick="setDiscussionBook('물고기는 존재하지 않는다 - 룰루 밀러')" class="px-3 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-lg transition">📗 물고기는 존재하지 않는다</button>
+                            <button onclick="setDiscussionBook('트렌드 코리아 2026 - 김난도')" class="px-3 py-1 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 rounded-lg transition">📙 트렌드 코리아 2026</button>
+                        </div>
+
+                        <button onclick="generateDiscussionTopics()" id="btn-gen-disc" class="bg-cozy-primary hover:bg-cozy-primaryHover text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                            <span>✨ 토론 발제문 생성하기</span>
+                        </button>
+
+                        <div id="disc-loading" class="hidden py-8 text-center text-sky-600">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-sky-500 border-t-transparent mb-2"></div>
+                            <p class="text-xs font-medium">Gemini AI가 깊이 있는 토론 질문을 구성 중입니다...</p>
+                        </div>
+
+                        <div id="disc-result" class="hidden mt-6 p-6 bg-sky-50/60 rounded-2xl border border-sky-200 text-slate-800 text-sm leading-relaxed whitespace-pre-wrap"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: AI Speech TTS -->
+                <div id="ai-panel-tts" class="ai-panel hidden bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm">
+                    <h3 class="serif-heading text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <span>🔊</span> AI 도서 구절 오디오 낭독 (Gemini Speech)
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        Gemini 2.5 Flash Audio 엔진을 활용하여 인상 깊은 도서 구절을 따뜻한 음성으로 들어보세요.
+                    </p>
+
+                    <div class="space-y-4 max-w-3xl">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">낭독할 구절 또는 안내 문구</label>
+                            <textarea id="tts-input-text" rows="3" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none">안녕하세요, (주)제주비 등대독서회입니다. 금요일 점심, 책 한 권과 함께 생각의 항해를 시작해보세요.</textarea>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">목소리 보이스 선택</label>
+                                <select id="tts-voice-select" class="px-3 py-2 rounded-xl border border-stone-200 text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                    <option value="Kore">Kore (차분하고 신뢰감 있는 목소리)</option>
+                                    <option value="Zephyr">Zephyr (맑고 명랑한 목소리)</option>
+                                    <option value="Puck">Puck (활기찬 목소리)</option>
+                                    <option value="Fenrir">Fenrir (깊고 안정감 있는 목소리)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button onclick="generateAudioTTS()" id="btn-gen-tts" class="bg-cozy-primary hover:bg-cozy-primaryHover text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                            <span>🔊 음성 생성 및 재생</span>
+                        </button>
+
+                        <div id="tts-loading" class="hidden py-8 text-center text-sky-600">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-sky-500 border-t-transparent mb-2"></div>
+                            <p class="text-xs font-medium">Gemini 오디오 모델이 고품질 음성을 생성하는 중입니다...</p>
+                        </div>
+
+                        <!-- Audio Player Output -->
+                        <div id="tts-player-container" class="hidden mt-6 p-6 bg-stone-900 text-white rounded-2xl flex flex-col items-center justify-center gap-3">
+                            <p class="text-xs text-sky-300 font-medium">🎙️ 생성 완료된 오디오 재생</p>
+                            <audio id="tts-audio-player" controls class="w-full max-w-md"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: AI Image Bookmark Generator -->
+                <div id="ai-panel-image" class="ai-panel hidden bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm">
+                    <h3 class="serif-heading text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <span>🎨</span> AI 독서 북마크 & 아트워크 생성 (Imagen 4.0)
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        독서 분위기에 어울리는 나만의 책갈피나 이미지 카드를 Imagen AI 모델로 생성해보세요.
+                    </p>
+
+                    <div class="space-y-4 max-w-3xl">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">이미지 컨셉 설명 (영문 지원 최적화)</label>
+                            <input type="text" id="image-prompt-input" value="A cozy watercolor illustration of a lighthouse, glowing warmly near the ocean at sunset, aesthetic bookmark style, calm and peaceful" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="text-slate-400 py-1">추천 프롬프트:</span>
+                            <button onclick="setImagePrompt('A serene library surrounded by ocean waves, soft sunlight, artistic watercolor drawing')" class="px-3 py-1 bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg transition">#바다 도서관 수채화</button>
+                            <button onclick="setImagePrompt('Minimalist book and coffee cup on a wooden table, warm golden hour lighting, cozy atmosphere')" class="px-3 py-1 bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg transition">#따뜻한 커피와 책</button>
+                        </div>
+
+                        <button onclick="generateBookmarkImage()" id="btn-gen-img" class="bg-cozy-primary hover:bg-cozy-primaryHover text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                            <span>✨ 북마크 이미지 생성하기</span>
+                        </button>
+
+                        <div id="img-loading" class="hidden py-8 text-center text-amber-600">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-amber-500 border-t-transparent mb-2"></div>
+                            <p class="text-xs font-medium">Imagen 4.0 모델이 고화질 아트를 드로잉하는 중입니다...</p>
+                        </div>
+
+                        <!-- Result Image -->
+                        <div id="img-result-container" class="hidden mt-6 text-center">
+                            <div class="inline-block p-3 bg-stone-100 rounded-3xl border border-stone-200 shadow-md max-w-md">
+                                <img id="gen-image-out" src="" alt="AI Generated Bookmark" class="rounded-2xl max-h-96 mx-auto object-cover">
+                                <p class="text-xs text-slate-500 mt-2 font-medium">등대독서회 전용 AI 북마크가 생성되었습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 sm:py-24 px-4 sm:px-6 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold tracking-widest text-cozy-primary uppercase block mb-2">FAQ</span>
+                <h2 class="serif-heading text-2xl sm:text-4xl font-bold text-slate-900">
+                    자주 묻는 질문
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden transition">
+                    <button onclick="toggleFaq(1)" class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center hover:bg-stone-50">
+                        <span>Q. 책을 다 읽지 못하고 참석해도 괜찮나요?</span>
+                        <svg id="faq-icon-1" class="w-5 h-5 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-stone-100 pt-4">
+                        네, 물론입니다! 완독하지 못하셨더라도 동료들의 발제와 요약 내용을 들으며 충분히 대화에 참여하실 수 있습니다. 완독에 대한 부담 없이 편안한 마음으로 참석해 주세요.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden transition">
+                    <button onclick="toggleFaq(2)" class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center hover:bg-stone-50">
+                        <span>Q. 모임 시 점심 식사는 어떻게 제공되나요?</span>
+                        <svg id="faq-icon-2" class="w-5 h-5 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-stone-100 pt-4">
+                        동호회 정기 지원금을 통해 도시락, 샌드위치, 샐러드 및 케이터링 음료가 준비됩니다. 모임 1부(11:00~12:00) 후 2부(12:00~13:00) 시간에 식사를 함께 나눕니다. (※ 단, 모임 당일 아침 9시까지 신청자에 한함)
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden transition">
+                    <button onclick="toggleFaq(3)" class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center hover:bg-stone-50">
+                        <span>Q. 중간에 출장이나 회의 일정으로 결석하게 되면 어떻게 하나요?</span>
+                        <svg id="faq-icon-3" class="w-5 h-5 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-stone-100 pt-4">
+                        업무 일정이 최우선이므로 미리 사내 메신저 슬랙(Slack) 채널을 통해 불참 소식을 공유해 주시면 됩니다. 자율적이고 배려하는 분위기로 운영되고 있습니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Bottom -->
+        <section class="py-16 px-4 sm:px-6 max-w-4xl mx-auto mb-16">
+            <div class="bg-gradient-to-tr from-sky-800 to-sky-600 text-white p-8 sm:p-12 rounded-3xl shadow-xl text-center relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="serif-heading text-2xl sm:text-3xl font-bold mb-3">등대독서회의 새로운 멤버가 되어보세요</h2>
+                    <p class="text-sky-100 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
+                        매주 금요일, 나를 채우고 동료들과 깊어지는 2시간의 여정이 기다립니다.
+                    </p>
+                    <button onclick="openApplyModal()" class="bg-white text-sky-800 hover:bg-amber-50 font-bold px-8 py-3.5 rounded-2xl transition shadow-md active:scale-95 inline-flex items-center gap-2">
+                        <span>지금 참가를 신청합니다</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200/80 py-10 px-4 sm:px-6 text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-lg">🏮</span>
+                <span class="font-bold text-slate-800 text-sm">등대독서회</span>
+                <span class="text-stone-300">|</span>
+                <span>(주)제주비 사내 독서동호회</span>
+            </div>
+            <p>&copy; 2026 (주)제주비 등대독서회. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Application Modal -->
+    <div id="apply-modal" class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeApplyModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                    🏮
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 text-lg">등대독서회 가입 신청</h3>
+                    <p class="text-xs text-cozy-muted">(주)제주비 사내 임직원 전용</p>
+                </div>
+            </div>
+
+            <!-- Form matched 1:1 with Google Sheet DB columns -->
+            <form id="apply-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">이름 <span class="text-rose-500">*</span></label>
+                        <input type="text" id="apply-name" required placeholder="예: 홍길동" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">소속 부서 <span class="text-rose-500">*</span></label>
+                        <input type="text" id="apply-dept" required placeholder="예: 디자인팀" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">사내 이메일 주소 <span class="text-rose-500">*</span></label>
+                    <input type="email" id="apply-email" required placeholder="example@jejubi.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">관심 도서 분야</label>
+                    <select id="apply-interest" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 text-slate-700 bg-white">
+                        <option value="인문 / 에세이">인문 / 에세이</option>
+                        <option value="트렌드 / 경영 / IT">트렌드 / 경영 / IT</option>
+                        <option value="자기계발 / 경제">자기계발 / 경제</option>
+                        <option value="소설 / 문학">소설 / 문학</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">가입 각오 및 기대하는 점</label>
+                    <textarea id="apply-message" rows="3" placeholder="읽고 싶으신 책이나 동호회에 바라는 점을 편하게 남겨주세요." class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 resize-none"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" id="btn-submit-apply" class="w-full bg-cozy-primary hover:bg-cozy-primaryHover text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                        <span id="btn-submit-text">가입 신청 완료하기</span>
+                        <div id="btn-submit-spinner" class="hidden animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                    </button>
+                </div>
+            </form>
+
+            <div id="success-msg" class="hidden text-center py-8">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                    ✓
+                </div>
+                <h4 class="font-bold text-slate-900 text-lg mb-2">가입 신청이 완료되었습니다!</h4>
+                <p class="text-xs text-slate-600 mb-6">
+                    신청 내용이 구글 시트 DB에 등록되었습니다.<br>
+                    담당자가 확인 후 사내 메신저(Slack) 및 이메일로 안내 드리겠습니다.
+                </p>
+                <button onclick="closeApplyModal()" class="bg-stone-100 hover:bg-stone-200 text-slate-700 text-xs font-bold px-6 py-2.5 rounded-xl transition">
+                    창 닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // 📌 Google Apps Script 배포 URL 설정
+        // Apps Script 배포 후 발급받은 Web App URL을 아래에 넣어주세요.
+        // 예시: const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx.../exec";
+        // ============================================================
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMy5CIW7B5QHMgvPWauwitGEy9z5zV1yffJ5QiZ2kv9NAc13Q0nFBmBg7Sq1GUt-xC/exec";
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('apply-name').value.trim();
+            const department = document.getElementById('apply-dept').value.trim();
+            const email = document.getElementById('apply-email').value.trim();
+            const interest = document.getElementById('apply-interest').value;
+            const message = document.getElementById('apply-message').value.trim();
+
+            const submitBtn = document.getElementById('btn-submit-apply');
+            const submitText = document.getElementById('btn-submit-text');
+            const submitSpinner = document.getElementById('btn-submit-spinner');
+
+            submitBtn.disabled = true;
+            submitText.innerText = "전송 중...";
+            submitSpinner.classList.remove('hidden');
+
+            const payload = {
+                name: name,
+                department: department,
+                email: email,
+                interest: interest,
+                message: message
+            };
+
+            try {
+                if (!APPS_SCRIPT_URL) {
+                    console.warn("Apps Script URL이 설정되지 않았습니다. 가상 등록 처리합니다.");
+                    await new Promise(r => setTimeout(r, 1000));
+                } else {
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                }
+
+                document.getElementById('apply-form').classList.add('hidden');
+                document.getElementById('success-msg').classList.remove('hidden');
+                document.getElementById('apply-form').reset();
+            } catch (err) {
+                console.error("제출 오류:", err);
+                alertToast("신청 정보를 전송하지 못했습니다. 잠시 후 다시 시도해 주세요.");
+            } finally {
+                submitBtn.disabled = false;
+                submitText.innerText = "가입 신청 완료하기";
+                submitSpinner.classList.add('hidden');
+            }
+        }
+
+        /* Tab Switching Logic for AI Lounge */
+        function switchAiTab(tabName) {
+            const tabs = ['recommend', 'discussion', 'tts', 'image'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                const panel = document.getElementById(`ai-panel-${t}`);
+                if (t === tabName) {
+                    btn.className = 'px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-cozy-primary text-white shadow-sm transition flex items-center gap-1.5';
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = 'px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-stone-100 transition border border-stone-200 flex items-center gap-1.5';
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        function setRecommendPrompt(txt) {
+            document.getElementById('recommend-input').value = txt;
+        }
+
+        function setDiscussionBook(txt) {
+            document.getElementById('discussion-book-input').value = txt;
+        }
+
+        function setImagePrompt(txt) {
+            document.getElementById('image-prompt-input').value = txt;
+        }
+
+        /* 1. Gemini Text API Call for Book Recommendations */
+        async function generateBookRecommendations() {
+            const query = document.getElementById('recommend-input').value.trim();
+            if (!query) {
+                alertToast('관심사나 상황을 입력해 주세요.');
+                return;
+            }
+
+            const loading = document.getElementById('rec-loading');
+            const resultBox = document.getElementById('rec-result');
+            loading.classList.remove('hidden');
+            resultBox.classList.add('hidden');
+
+            const systemPrompt = "당신은 (주)제주비 사내 독서동호회 '등대독서회'의 전문 AI 북 소믈리에입니다. 사용자의 상황과 요구사항에 맞추어 사내 독서모임에서 다루기 좋은 추천 도서 3권을 친절하고 흥미진진하게 추천하세요. 각 도서마다 제목, 저자, 핵심 가치, 그리고 사내 동료들과 나눌 수 있는 포인트 1줄을 명확히 정리해주세요.";
+
+            try {
+                const resText = await callGeminiText(query, systemPrompt);
+                resultBox.innerHTML = formatMarkdown(resText);
+                resultBox.classList.remove('hidden');
+            } catch (err) {
+                console.error(err);
+                resultBox.innerText = "추천 도서를 가져오는 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+                resultBox.classList.remove('hidden');
+            } finally {
+                loading.classList.add('hidden');
+            }
+        }
+
+        /* 2. Gemini Text API Call for Discussion Topics */
+        async function generateDiscussionTopics() {
+            const bookInfo = document.getElementById('discussion-book-input').value.trim();
+            if (!bookInfo) {
+                alertToast('도서 제목을 입력하거나 선택해 주세요.');
+                return;
+            }
+
+            const loading = document.getElementById('disc-loading');
+            const resultBox = document.getElementById('disc-result');
+            loading.classList.remove('hidden');
+            resultBox.classList.add('hidden');
+
+            const systemPrompt = "당신은 등대독서회의 토론 리더입니다. 제공된 도서에 대해 사내 임직원 모임에서 활발하고 깊이 있는 소통을 유도할 수 있는 토론 질문 3가지를 작성해 주세요. 1. 개인적 경험 공유 질문, 2. 직장 및 업무 연계 질문, 3. 철학적/사회적 관점 질문으로 구분하여 작성하세요.";
+
+            try {
+                const resText = await callGeminiText(`도서: ${bookInfo}`, systemPrompt);
+                resultBox.innerHTML = formatMarkdown(resText);
+                resultBox.classList.remove('hidden');
+            } catch (err) {
+                console.error(err);
+                resultBox.innerText = "질문 생성 중 오류가 발생했습니다.";
+                resultBox.classList.remove('hidden');
+            } finally {
+                loading.classList.add('hidden');
+            }
+        }
+
+        /* 3. Gemini TTS API Call */
+        async function generateAudioTTS() {
+            const text = document.getElementById('tts-input-text').value.trim();
+            const voice = document.getElementById('tts-voice-select').value;
+            if (!text) {
+                alertToast('낭독할 문장을 입력해 주세요.');
+                return;
+            }
+
+            const loading = document.getElementById('tts-loading');
+            const playerBox = document.getElementById('tts-player-container');
+            const audioPlayer = document.getElementById('tts-audio-player');
+            loading.classList.remove('hidden');
+            playerBox.classList.add('hidden');
+
+            try {
+                const audioUrl = await callGeminiTTS(text, voice);
+                audioPlayer.src = audioUrl;
+                playerBox.classList.remove('hidden');
+                audioPlayer.play().catch(e => console.log('Auto-play muted or prevented'));
+            } catch (err) {
+                console.error(err);
+                alertToast('오디오 생성 실패: 잠시 후 다시 시도해 주세요.');
+            } finally {
+                loading.classList.add('hidden');
+            }
+        }
+
+        /* 4. Imagen Image Generation Call */
+        async function generateBookmarkImage() {
+            const prompt = document.getElementById('image-prompt-input').value.trim();
+            if (!prompt) {
+                alertToast('이미지 프롬프트를 입력해 주세요.');
+                return;
+            }
+
+            const loading = document.getElementById('img-loading');
+            const imgBox = document.getElementById('img-result-container');
+            const imgEl = document.getElementById('gen-image-out');
+            loading.classList.remove('hidden');
+            imgBox.classList.add('hidden');
+
+            try {
+                const imgDataUrl = await callImagen(prompt);
+                imgEl.src = imgDataUrl;
+                imgBox.classList.remove('hidden');
+            } catch (err) {
+                console.error(err);
+                alertToast('이미지 생성 실패: 잠시 후 다시 시도해 주세요.');
+            } finally {
+                loading.classList.add('hidden');
+            }
+        }
+
+        /* API Helper Implementations */
+        async function callGeminiText(prompt, systemInstruction = "") {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+            };
+            if (systemInstruction) {
+                payload.systemInstruction = { parts: [{ text: systemInstruction }] };
+            }
+
+            let delay = 1000;
+            for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                    const res = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+                    const data = await res.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "답변을 생성할 수 없습니다.";
+                } catch (e) {
+                    if (attempt === 2) throw e;
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        async function callGeminiTTS(text, voice = "Kore") {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: text }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } }
+                    }
+                },
+                model: "gemini-2.5-flash-preview-tts"
+            };
+
+            let delay = 1000;
+            for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                    const res = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const data = await res.json();
+                    const part = data.candidates?.[0]?.content?.parts?.[0];
+                    if (part?.inlineData?.data && part?.inlineData?.mimeType) {
+                        const mimeType = part.inlineData.mimeType;
+                        const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                        const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 24000;
+                        
+                        const pcmData = base64ToArrayBuffer(part.inlineData.data);
+                        const pcm16 = new Int16Array(pcmData);
+                        const wavBlob = pcmToWav(pcm16, sampleRate);
+                        return URL.createObjectURL(wavBlob);
+                    }
+                    throw new Error("Invalid TTS payload");
+                } catch (e) {
+                    if (attempt === 2) throw e;
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        async function callImagen(prompt) {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
+            const payload = {
+                instances: [{ prompt: prompt }],
+                parameters: { sampleCount: 1 }
+            };
+
+            let delay = 1000;
+            for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                    const res = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const data = await res.json();
+                    if (data.predictions?.[0]?.bytesBase64Encoded) {
+                        return `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
+                    }
+                    throw new Error("No image data");
+                } catch (e) {
+                    if (attempt === 2) throw e;
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        /* Utility Functions */
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcm16, sampleRate) {
+            const numChannels = 1;
+            const bitsPerSample = 16;
+            const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
+            const blockAlign = numChannels * (bitsPerSample / 8);
+            const dataSize = pcm16.length * 2;
+            const buffer = new ArrayBuffer(44 + dataSize);
+            const view = new DataView(buffer);
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + dataSize, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint16(32, blockAlign, true);
+            view.setUint16(34, bitsPerSample, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, dataSize, true);
+
+            let offset = 44;
+            for (let i = 0; i < pcm16.length; i++, offset += 2) {
+                view.setInt16(offset, pcm16[i], true);
+            }
+
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        function formatMarkdown(txt) {
+            return txt
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n\n/g, '<br><br>')
+                .replace(/\n/g, '<br>');
+        }
+
+        function alertToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-slate-800 text-white text-xs px-4 py-3 rounded-xl shadow-lg transition-all animate-bounce';
+            toast.innerText = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Modal Handlers
+        function openApplyModal() {
+            document.getElementById('apply-modal').classList.remove('hidden');
+            document.getElementById('apply-form').classList.remove('hidden');
+            document.getElementById('success-msg').classList.add('hidden');
+        }
+
+        function closeApplyModal() {
+            document.getElementById('apply-modal').classList.add('hidden');
+        }
+
+        // FAQ Toggle Accordion
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Book Filter
+        function filterBooks(category) {
+            const cards = document.querySelectorAll('.book-card');
+            const btns = ['all', 'current', 'essay', 'biz'];
+            
+            btns.forEach(btn => {
+                const el = document.getElementById(`btn-${btn}`);
+                if (btn === category) {
+                    el.className = 'px-3 py-1.5 rounded-lg bg-cozy-primary text-white transition';
+                } else {
+                    el.className = 'px-3 py-1.5 rounded-lg text-slate-600 hover:bg-stone-100 transition';
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
